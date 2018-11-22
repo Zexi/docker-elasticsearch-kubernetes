@@ -25,7 +25,7 @@ discovery:
   zen:
     ping.unicast.hosts: ${DISCOVERY_SERVICE}
     minimum_master_nodes: ${NUMBER_OF_MASTERS}
-    
+
 bootstrap:
   memory_lock: ${MEMORY_LOCK}
 
@@ -48,3 +48,11 @@ searchguard:
 metrics:
   statsd:
     host: ${STATSD_HOST}
+
+indices.memory.index_buffer_size: 15%
+indices.breaker.total.limit: 30%
+indices.breaker.request.limit: 6%
+indices.breaker.fielddata.limit: 3%
+indices.queries.cache.count: 500
+indices.queries.cache.size: 5%
+thread_pool.bulk.queue_size: 1024
